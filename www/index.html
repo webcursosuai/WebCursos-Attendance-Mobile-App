@@ -1,0 +1,103 @@
+<html>
+<div id='body'>
+	<head>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta charset=utf-8 />
+
+<!-- js -->
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/date.js"></script>
+<!-- css -->
+<link href="css/bootstrap.min.css" rel='stylesheet'>
+
+	</head>
+	<style type="text/css">
+.error {
+	color: red;
+	font-weight: bold;
+	margin: 10px;
+	text-align: center;
+}
+</style>
+	<body>
+
+		<div class='container'>
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h2 class='form-singin-heading'>Inicie sesi&oacute;n</h2>
+				</div>
+				<div class="panel-body">
+					<h4>Usuario</h4>
+					<label for="user" class="sr-only">Rut</label> <input id="userinput"
+						name="user" type="text" class='form-control'
+						placeholder='usuario@alumnos.uai.cl' required />
+					<h4>Contrase&ntilde;a</h4>
+					<label for='password' class="sr-only">Contrase&ntilde;a</label> <input
+						name="password" id="passwordinput" type="password"
+						class='form-control' placeholder='Contrase&ntilde;a' required>
+					<br> <input name='login'
+						class="btn btn-lg btn-primary btn-block btnsubmit" type="submit"></input>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<footer>
+		<div id="respuesta"></div>
+	</footer>
+	<!-- scripts -->
+	<script>
+		$(document)
+				.ready(
+						function() {
+							if (localStorage.getItem("user")) {
+								window.location
+								.replace("sessions.html");
+							} else {
+								$(".btnsubmit")
+										.click(
+												function() {
+													var user = $('#userinput').val();
+													var pass = $('#passwordinput').val();
+													jQuery
+															.ajax({
+
+																url : "https://webcursos-d.uai.cl/mod/attendance/mobile/requests.php",
+																async : false,
+																dataType : 'jsonp',
+																jsonp : 'callback',
+																contentType : "application/json",
+
+																data : {
+																	'username' : user,
+																	'password' : pass,
+																	'action' : 'login'
+																},
+																success : function(
+																		response) {
+																	// aqui tiene que ir == '' (osea no hay error)
+																	if (response.error == 'Valid login') {
+																		localStorage
+																				.setItem("user",user);
+																		localStorage
+																				.setItem("pass",pass);
+																		//$('#body').load("sessions.html");
+																		window.location
+																				.replace("sessions.html");
+																		//alert('username: '+ username +' '+ 'password: '+password);
+																	} else {
+																		$('#respuesta')
+																				.html('<div class="error">' + response.error + '</div>');
+																	}
+
+																}
+															});
+												});
+
+							}//case you are not logged in
+						});
+	</script>
+</html>

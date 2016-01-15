@@ -1,0 +1,7 @@
+/*
+ * 
+ * 
+ */
+function takePhoto() {
+		$('.photo').click();
+}
