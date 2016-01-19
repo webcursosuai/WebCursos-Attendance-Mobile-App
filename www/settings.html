@@ -1,0 +1,48 @@
+<html>
+<head>
+   		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	    <meta charset=utf-8 />
+	  
+	    <script src="js/jquery-2.1.4.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery-ui.js"></script>
+		
+		<link href="css/bootstrap.min.css" rel='stylesheet'>
+	
+</head>
+<body>
+<div class='container'>
+	<div class="panel panel-info clearfix">
+		<div class="panel-heading">
+		<h2><span class="settings glyphicon glyphicon-share-alt pull-right" aria-hidden="true" onclick="goBack()" onmouseover="" style="cursor: pointer;"></span></h2>
+			<h2 class='form-singin-heading'>Settings</h2> 
+		</div>
+
+		<div class="panel-group" id="accordion" role="tablist" 	aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div role="tab" id="headingOne">
+					<h3 class="panel-title">
+						<a class="list-group-item " role="button"> About 
+						<span class="noncollapsed glyphicon glyphicon-info-sign pull-right"></span>
+						</a>
+					</h3>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div role="tab">
+					<h4 class="panel-title">
+						<a class="collapsed list-group-item" role="button" onclick="logout()"> Logout 
+						<span class="noncollapsed glyphicon glyphicon-log-out pull-right"></span>
+						</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<!-- scripts -->
+		<script type="text/javascript" src="js/logoutClick.js"></script>
+		<script type="text/javascript" src="js/goBack.js"></script>
+		<!-- <script type="text/javascript" src="js/aboutClick.js"></script>  -->
+</html>
