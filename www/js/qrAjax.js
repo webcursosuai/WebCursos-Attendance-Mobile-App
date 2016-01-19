@@ -60,7 +60,12 @@ function onLoadHandler(){
 					success : function(
 							response) {
 						if (response.error == 'Attendance Taken Correctly!') {
-							alert (response.error);	
+							alert (response.error);
+							$('.click').removeClass("list-group-item-success");
+							$('.click').addClass("list-group-item-info");
+							$('.click').find('span').removeClass( "glyphicon glyphicon-camera" );
+							$('.click').find('span').addClass( "glyphicon glyphicon-ok" );
+							$('#fileInput').remove();
 						} else {
 							alert ('Error at taking attendance');
 						}

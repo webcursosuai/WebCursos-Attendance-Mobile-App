@@ -3,7 +3,7 @@
  * 
  */
 $(document).ready(function() {
-        			//set this values as desired(for interval on attendance to be taken)
+					//set this values as desired(for interval on attendance to be taken)
         			var minus = 30;
         			var plus = 15;
         			//loginvalues
@@ -63,7 +63,7 @@ $(document).ready(function() {
                    			if(currentdatetime <= timesplus && difference<= minus && difference >=  - minus && counttoday == 0){
                    				//if you can take the attendance now
                    				counttoday++;
-                   				$('.today').append("<a href='#' onclick='takePhoto()' class='click list-group-item list-group-item-success clearfix'><div class='clearfix'><span class='glyphicon glyphicon-camera pull-right'></span>"+ value.coursename +"\n"+ value.description +"\n"+ value.time +"</div></a>");
+                   				$('.today').append("<a href='#' onclick='takePhoto()' class='click list-group-item list-group-item-success clearfix'><div class='clearfix'><h3><span class='glyphicon glyphicon-camera pull-right'></span></h3>"+ value.coursename +"\n"+ value.description +"\n"+ value.time +"</div></a>");
                        			}
                    			else if(currentdatetime <= sqldatetime){
                    				//if the session is today but not now

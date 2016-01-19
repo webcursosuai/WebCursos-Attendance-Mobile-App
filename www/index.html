@@ -1,6 +1,5 @@
 <html>
-<div id='body'>
-	<head>
+<head>
 <meta name="viewport"
 	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 <meta charset=utf-8 />
@@ -12,9 +11,7 @@
 <script src="js/date.js"></script>
 <!-- css -->
 <link href="css/bootstrap.min.css" rel='stylesheet'>
-
-	</head>
-	<style type="text/css">
+<style type="text/css">
 .error {
 	color: red;
 	font-weight: bold;
@@ -22,32 +19,38 @@
 	text-align: center;
 }
 </style>
-	<body>
-
+</head>
+<body>
 		<div class='container'>
 			<div class="panel panel-danger">
 				<div class="panel-heading">
 					<h2 class='form-singin-heading'>Log in</h2>
 				</div>
 				<div class="panel-body">
+				
 					<h4>User</h4>
-					<label for="user" class="sr-only">Rut</label> <input id="userinput"
-						name="user" type="text" class='form-control'
-						placeholder='user@alumnos.uai.cl' required />
+					<label for="user" class="sr-only">User</label> 
+					<div class="input-group">
+					<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+					<input id="userinput" name="user" type="text" class='form-control' placeholder='user@alumnos.uai.cl' required />
+					</div>
+					
 					<h4>Password</h4>
-					<label for='password' class="sr-only">Password</label> <input
-						name="password" id="passwordinput" type="password"
-						class='form-control' placeholder='Password' required>
-					<br> <input name='login'
-						class="btn btn-lg btn-primary btn-block btnsubmit" type="submit"></input>
+					<label for='password' class="sr-only">Password</label>
+					<div class="input-group">
+               		<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+					<input name="password" id="passwordinput" type="password" class='form-control' placeholder='Password' required> 
+					</div>
+					
+					<br>
+					<input name='login'	class="btn btn-lg btn-primary btn-block btnsubmit" type="submit"></input>
 				</div>
 			</div>
 		</div>
-
 	</body>
 	<footer>
 		<div id="respuesta"></div>
 	</footer>
 	<!-- scripts -->
-<script type="text/javascript" src="js/loginAjax.js"></script>
+	<script type="text/javascript" src="js/loginAjax.js"></script>
 </html>

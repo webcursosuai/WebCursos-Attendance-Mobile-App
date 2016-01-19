@@ -30,10 +30,11 @@
 	
 </head>
 <body>
-<div class='container'>
+<div class='container' style="display:none;">
 	<div class="panel panel-success clearfix">
 		<div class="panel-heading">
-			<h2 class='form-singin-heading'>WebCursos Attendance</h2>
+		<h2><span class="settings glyphicon glyphicon-cog pull-right" aria-hidden="true" onmouseover="" style="cursor: pointer;"></span></h2>
+			<h2 class='form-singin-heading'>WebCursos Attendance</h2> 
 		</div>
 
 		<div class="panel-group" id="accordion" role="tablist"
@@ -59,14 +60,14 @@
 			</div>
 			<div class="panel panel-default">
 				<div role="tab" id="headingTwo">
-					<h4 class="panel-title">
+					<h3 class="panel-title">
 						<a class="collapsed list-group-item" role="button"
 							data-toggle="collapse" data-parent="#accordion"
 							href="#collapseTwo" aria-expanded="false"
-							aria-controls="collapseTwo"> Tomorrow<span
+							aria-controls="collapseTwo"> Tomorrow <span
 							class="glyphicon glyphicon-plus pull-right"></span>
 						</a>
-					</h4>
+					</h3>
 				</div>
 				<div id="collapseTwo" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingTwo">
@@ -79,14 +80,14 @@
 			</div>
 			<div class="panel panel-default">
 				<div role="tab" id="headingFour">
-					<h4 class="panel-title">
+					<h3 class="panel-title">
 						<a class="collapsed list-group-item" role="button"
 							data-toggle="collapse" data-parent="#accordion"
 							href="#collapseFour" aria-expanded="false"
 							aria-controls="collapseFour"> Later <span
 							class="glyphicon glyphicon-plus pull-right"></span>
 						</a>
-					</h4>
+					</h3>
 				</div>
 				<div id="collapseFour" class="panel-collapse collapse"
 					role="tabpanel" aria-labelledby="headingFour">
@@ -98,9 +99,8 @@
 				</div>
 			</div>
 		</div>
-	
 	</div>
-	<div id="wrap">
+		<div id="wrap" style="display:none;">
 <!-- Begin page display Qr content -->
      	<div class="container">   	
         	<input type="file" id="fileInput" class="photo" style="display:none;"/><br/>
@@ -108,9 +108,15 @@
     	<h1>Log</h1>
     	<div id="resultText"></div>
     </div>
+	</div>
+    <div id="loading" style="display:none; text-align: center; vertical-align: middle;">
+    <img src="img/loader.gif">
+    </div>
 </body>
 <!-- scripts -->
+		<script type="text/javascript" src="js/settingsClick.js"></script>
 		<script type="text/javascript" src="js/qrAjax.js"></script>
+		<script type="text/javascript" src="js/loading.js"></script>
 		<script type="text/javascript" src="js/photoClick.js"></script>
 		<script type="text/javascript" src="js/getDateDiff.js"></script>
 		<script type="text/javascript" src="js/dateAdd.js"></script>
