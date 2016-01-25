@@ -41,6 +41,8 @@ function onLoadHandler(){
 				  	var attendanceid = string[2];
 					var username = localStorage.getItem("user");
                     var password = localStorage.getItem("pass");
+                    //get if you are late or not (0 = not,1 = late)
+                    var late = $('.list-group-item-success').attr('late');
 				jQuery
 				.ajax({
 
@@ -54,8 +56,9 @@ function onLoadHandler(){
 						'username' : username,
 						'password' : password,
 						'action' : 'attendance',
-						'sessionid': sessionid,
-						'attendanceid': attendanceid
+						'sessionid' : sessionid,
+						'attendanceid' : attendanceid,
+						'late' : late
 					},
 					success : function(
 							response) {

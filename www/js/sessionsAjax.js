@@ -41,10 +41,10 @@ $(document).ready(function() {
                     	else{
                     		$.each(response.values, function (index, value){
 								//date time from sql
-                    		    var sqldatetime = sqldate(value.time)
-                    		    //var sqldateduration = sqldate(value.timeduration);
-                    			//console.log('sqltime :' +sqldatetime);
-                    			//console.log('sqlduration :' +sqldateduration);
+                    		    var sqldatetime = sqldate(value.time);
+                    		    var sqldateduration = sqldate(value.timeduration);
+                    			console.log('sqltime :' +sqldatetime);
+                    			console.log('sqlduration :' +sqldateduration);
  								//current datetime
                    				var currentdatetime = new Date();
                    				//console.log('current: ' + currentdatetime);
@@ -56,18 +56,23 @@ $(document).ready(function() {
                    		    	//console.log('timesminus :' + timesminus );
                    		        var timesplus=  dateAdd(sqldatetime,'minute',+ plus);
                    		        //console.log('timesplus :' + timesplus );
-                   				 //la diferencia: ahora -> si estoy pasado de la horaes negativa
+                   				 //la diferencia: ahora -> si estoy pasado de la hora es negativa
                    				 //si estoy adelantado es positiva
                    			if (currentdatetime.getDate() == sqldatetime.getDate() && currentdatetime.getMonth() == sqldatetime.getMonth()){
                    				//this means the session is today 
                    				var difference = getDateDiff(currentdatetime,sqldatetime,'minutes');
                    				//console.log("difference: "+ difference);
                    			if(currentdatetime <= timesplus && difference<= minus && difference >=  - minus && counttoday == 0){
-                   				//if you can take the attendance now
+                   				//if you can take the attendance now and you are on time (attr late = 0)
                    				counttoday++;
-                   				$('.today').append("<a href='#' onclick='takePhoto()' class='click list-group-item list-group-item-success clearfix'><div class='clearfix'><h3><span class='glyphicon glyphicon-camera pull-right'></span></h3>"+ value.coursename +"\n"+ value.description +"\n"+ value.time +"</div></a>");
+                   				$('.today').append("<a href='#' onclick='takePhoto()' late='0' class='click list-group-item list-group-item-success clearfix'><div class='clearfix'><h3><span class='glyphicon glyphicon-camera pull-right'></span></h3>"+ value.coursename +"\n"+ value.description +"\n"+ value.time +"</div></a>");
                        			}
-                   			else if(currentdatetime <= sqldatetime){
+                   			else if(currentdatetime >= timesplus && sqldateduration >= currentdatetime && counttoday == 0){
+                   				//if you can take the attendance now but you are late (attr late = 1)
+                   				counttoday++;
+                   				$('.today').append("<a href='#' onclick='takePhoto()' late='1' class='click list-group-item list-group-item-success clearfix'><div class='clearfix'><h3><span class='glyphicon glyphicon-camera pull-right'></span></h3>"+ value.coursename +"\n"+ value.description +"\n"+ value.time +"</div></a>");
+                       			}
+                   			else{
                    				//if the session is today but not now
                    				counttoday++;
                    				$('.today').append("<li class='list-group-item'><div class='clearfix'>"+ value.coursename +" "+ value.description +" "+ value.time +"</div></li>");
