@@ -3,7 +3,7 @@
  * 
  */
 $(document).ready(function() {
-					//set this values as desired(for interval on attendance to be taken)
+					//set this values as desired(for interval on attendance to be taken) and not being "late"
         			var minus = 30;
         			var plus = 15;
         			//loginvalues
@@ -41,8 +41,10 @@ $(document).ready(function() {
                     	else{
                     		$.each(response.values, function (index, value){
 								//date time from sql
-                    		    var sqldatetime = sqldate(value.time);
+                    		    var sqldatetime = sqldate(value.time)
+                    		    //var sqldateduration = sqldate(value.timeduration);
                     			//console.log('sqltime :' +sqldatetime);
+                    			//console.log('sqlduration :' +sqldateduration);
  								//current datetime
                    				var currentdatetime = new Date();
                    				//console.log('current: ' + currentdatetime);
