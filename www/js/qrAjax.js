@@ -32,7 +32,6 @@ function onLoadHandler(){
 				}catch(e){
 					resultElement.html(result);
 				}
-				//ajax to take attendance 
 				$('#resultText').html(result);
 				 	var string = result.split('*');
 				  	//string[0] = URL(comes without / at end), string[1] = sessid, string[2] = attid
@@ -41,8 +40,9 @@ function onLoadHandler(){
 				  	var attendanceid = string[2];
 					var username = localStorage.getItem("user");
                     var password = localStorage.getItem("pass");
-                    //get if you are late or not (0 = not,1 = late)
+                    //checks wheter you are late or not (0 = not,1 = late)
                     var late = $('.list-group-item-success').attr('late');
+                  //ajax to take attendance 
 				jQuery
 				.ajax({
 
@@ -62,15 +62,19 @@ function onLoadHandler(){
 					},
 					success : function(
 							response) {
-						if (response.error == 'Attendance Taken Correctly!') {
-							alert (response.error);
+						if(result == 'error decoding QR Code')
+							{
+							alert(result+ '. Please try again.');
+							}
+						else if (response.error == '1' && result != 'error decoding QR Code') {
+							alert ('Attendance taken correctly!.');
 							$('.click').removeClass("list-group-item-success");
 							$('.click').addClass("list-group-item-info");
 							$('.click').find('span').removeClass( "glyphicon glyphicon-camera" );
 							$('.click').find('span').addClass( "glyphicon glyphicon-ok" );
 							$('#fileInput').remove();
-						} else {
-							alert ('Error at taking attendance');
+						} else if(response.error == '0' && result != 'error decoding QR Code'){
+							alert ('Error at taking attendance.');
 						}
 					}
 				});

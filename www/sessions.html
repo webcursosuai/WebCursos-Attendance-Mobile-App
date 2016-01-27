@@ -30,95 +30,88 @@
 <link href="css/bootstrap.min.css" rel='stylesheet'>
 
 </head>
-<body>	
-<nav class="navbar navbar-default navbar-fixed-top">
-<div class="row panel panel-success clearfix">
-			<div class="col col-xs-18 panel-heading text-center">	
-			<h2><span class="settings pull-right glyphicon glyphicon-cog"></span></h2>
-				<h2 class='form-singin-heading'>WebCursos Attendance</h2>
+<body>
+	<div class='row'>
+		<div class="col col-xs-18 panel panel-success">
+			<div class="panel-heading success" style="max-height: 40;">
+				<h3 class='form-singin-heading text-center'
+					style="margin: 0; padding: 0;">
+					<span class="settings pull-right glyphicon glyphicon-cog"></span>
+					Sessions
+				</h3>
 			</div>
-	<div class='container' style="display: none; height: 100%;">
-		<div class="panel-group" id="accordion" role="tablist"
-			aria-multiselectable="true">
-			<div class="panel panel-default">
-				<div role="tab" id="headingOne">
-					<h3 class="panel-title">
-						<a class="list-group-item " role="button" data-toggle="collapse"
-							data-parent="#accordion" href="#collapseOne"
-							aria-controls="collapseOne"> Today <span
-							class="noncollapsed glyphicon glyphicon-minus pull-right"></span>
-						</a>
-					</h3>
-				</div>
-				<div id="collapseOne" class="panel-collapse collapse in"
-					role="tabpanel" aria-labelledby="headingOne">
-					<div>
-						<ul class="list-group today">
+			
+			<div class='container text-center'
+				style="display: none; height: 100%; background-image: url('img/bk.jpg');">
+				<img src="img/logo.gif"
+						style="padding-top: 25px; width: 150px; height: 90px;">
+				<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true" style="padding-top: 40px;">
+					<div class="panel panel-default">
+						<div role="tab" id="headingOne">
+							<h3 class="panel-title">
+								<a class="list-group-item " role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseOne"
+									aria-controls="collapseOne"> Today <span
+									class="noncollapsed glyphicon glyphicon-minus pull-right"></span>
+								</a>
+							</h3>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div>
+								<ul class="list-group today">
 
-						</ul>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div role="tab" id="headingTwo">
+							<h3 class="panel-title">
+								<a class="collapsed list-group-item" role="button"
+									data-toggle="collapse" data-parent="#accordion"
+									href="#collapseTwo" aria-expanded="false"
+									aria-controls="collapseTwo"> Tomorrow <span
+									class="glyphicon glyphicon-plus pull-right"></span>
+								</a>
+							</h3>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div>
+								<ul class="list-group tomorrow">
+
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div role="tab" id="headingFour">
+							<h3 class="panel-title">
+								<a class="collapsed list-group-item" role="button"
+									data-toggle="collapse" data-parent="#accordion"
+									href="#collapseFour" aria-expanded="false"
+									aria-controls="collapseFour"> Later <span
+									class="glyphicon glyphicon-plus pull-right"></span>
+								</a>
+							</h3>
+						</div>
+						<div id="collapseFour" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingFour">
+							<div>
+								<ul class="list-group later">
+
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-
-			<div class="panel panel-default">
-				<div role="tab" id="headingTwo">
-					<h3 class="panel-title">
-						<a class="collapsed list-group-item" role="button"
-							data-toggle="collapse" data-parent="#accordion"
-							href="#collapseTwo" aria-expanded="false"
-							aria-controls="collapseTwo"> Tomorrow <span
-							class="glyphicon glyphicon-plus pull-right"></span>
-						</a>
-					</h3>
-				</div>
-				<div id="collapseTwo" class="panel-collapse collapse"
-					role="tabpanel" aria-labelledby="headingTwo">
-					<div>
-						<ul class="list-group tomorrow">
-
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-default">
-				<div role="tab" id="headingFour">
-					<h3 class="panel-title">
-						<a class="collapsed list-group-item" role="button"
-							data-toggle="collapse" data-parent="#accordion"
-							href="#collapseFour" aria-expanded="false"
-							aria-controls="collapseFour"> Later <span
-							class="glyphicon glyphicon-plus pull-right"></span>
-						</a>
-					</h3>
-				</div>
-				<div id="collapseFour" class="panel-collapse collapse"
-					role="tabpanel" aria-labelledby="headingFour">
-					<div>
-						<ul class="list-group later">
-
-						</ul>
-					</div>
-				</div>
+			
 			</div>
 		</div>
-		<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	</div>
-	</div>
-	</nav>
 	<div id="wrap" style="display: none;">
 		<!-- Begin page display Qr content -->
 		<div class="container" style="display: none;">
