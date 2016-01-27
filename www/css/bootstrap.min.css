@@ -2832,7 +2832,7 @@ output {
 	display: block;
 	width: 100%;
 	height: 34px;
-	padding: 6px 12px;
+	padding: 6px 30px;
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #555;
@@ -3079,6 +3079,10 @@ select[multiple].form-group-lg .form-control, textarea.form-group-lg .form-contr
 	line-height: 34px;
 	text-align: center;
 	pointer-events: none
+}
+
+.has-feedback-left .form-control-feedback {
+    left: 0; 
 }
 
 .input-lg+.form-control-feedback {
@@ -3607,7 +3611,7 @@ select[multiple].form-group-lg .form-control, textarea.form-group-lg .form-contr
 
 input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block
 	{
-	width: 100%
+	width: 85%
 }
 
 .fade {

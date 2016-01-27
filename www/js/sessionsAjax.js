@@ -2,7 +2,10 @@
  * 
  * 
  */
-$(document).ready(function() {
+
+	function sessionajax(){
+					//cleans layout to refresh
+					$('li').remove();
 					//set this values as desired(for interval on attendance to be taken) and not being "late"
         			var minus = 30;
         			var plus = 15;
@@ -43,8 +46,8 @@ $(document).ready(function() {
 								//date time from sql
                     		    var sqldatetime = sqldate(value.time);
                     		    var sqldateduration = sqldate(value.timeduration);
-                    			console.log('sqltime :' +sqldatetime);
-                    			console.log('sqlduration :' +sqldateduration);
+//                    			console.log('sqltime :' +sqldatetime);
+//                    			console.log('sqlduration :' +sqldateduration);
  								//current datetime
                    				var currentdatetime = new Date();
                    				//console.log('current: ' + currentdatetime);
@@ -101,4 +104,5 @@ $(document).ready(function() {
             					}
                     	} //success        
             	    });
-            });
+	}
+           
