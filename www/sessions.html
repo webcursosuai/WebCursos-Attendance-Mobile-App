@@ -1,12 +1,17 @@
 <html>
 <head>
-<meta name="viewport"
-	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset=utf-8 />
 
 <script src="js/jquery-2.1.4.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery-ui.js"></script>
+
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 
 <script type="text/javascript" src="zepto.min.js"></script>
 <script type="text/javascript" src="jsqrcode/grid.js"></script>
@@ -31,18 +36,20 @@
 
 </head>
 <body>
+
+<div data-role="page" id="sessions">
 	<div class='row'>
 		<div class="col col-xs-18 panel panel-success">
 			<div class="panel-heading success" style="max-height: 40;">
 				<h3 class='form-singin-heading text-center'
-					style="margin: 0; padding: 0;">
-					<span class="settings pull-right glyphicon glyphicon-cog"></span>
+					style="margin: 0; padding: 0;"> <a href="#settings" data-transition="slide">
+					<span class="pull-right glyphicon glyphicon-cog"></span></a>
 					Sessions
 				</h3>
 			</div>
 			
 			<div class='container text-center'
-				style="display: none; height: 100%; background-image: url('img/bk.jpg');">
+				style="display: none; height: 100%; background-image: url('img/bk.jpg'); min-height: 800px;">
 				<img src="img/logo.gif"
 						style="padding-top: 25px; width: 150px; height: 90px;">
 				<div class="panel-group" id="accordion" role="tablist"
@@ -126,12 +133,74 @@
 		style="display: none; position: fixed; margin-top: 50%; margin-left: 30%">
 		<img src="img/loader.gif">
 	</div>
+</div>
 
+
+
+<!-- settings -->
+<div data-role="page" id="settings">
+	<div class='row container'>
+		<div class="col col-xs-18 panel panel-info">
+			<div class="panel-heading info" style="max-height: 40;">
+				<h3 class='form-singin-heading text-center'
+					style="margin: 0; padding: 0;"><a href="#sessions" data-transition="slide" data-direction="reverse">
+					<span class=" glyphicon glyphicon-arrow-left pull-left"
+						></span></a> Settings
+				</h3>
+			</div>
+			<div class='text-center'
+				style="min-height: 800px; height: 100%; background-image: url('img/bk.jpg');">
+
+				<img src="img/logo.gif"
+					style="padding-top: 25px; width: 150px; height: 90px;">
+
+					<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true" style="padding-top: 40px; width: 100%;">
+					<div class="panel panel-default">
+						<div role="tab" id="headingFive">
+							<h3 class="panel-title">
+								<a class="list-group-item " role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseFive"
+									aria-controls="collapseFive"> About <span
+									class="glyphicon glyphicon-info-sign pull-right"></span>
+								</a>
+							</h3>
+						</div>
+						<div id="collapseFive" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingFive">
+							<div>
+								<ul class="list-group">
+									<li class='list-group-item dontremove'>This is a mobile app for
+										taking attendance based on attendance moodle's mod</li>
+									<li class='list-group-item dontremove'>Take attendance by clicking on
+										a green session and scanning a provided QR Code</li>
+									<li class='list-group-item who text-info dontremove'></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div role="tab">
+							<h4 class="panel-title">
+								<a class="collapsed list-group-item dontremoveicon" role="button"
+									onclick="logout()"> Logout <span
+									class="glyphicon glyphicon-log-out pull-right"></span>
+								</a>
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- settings -->
+</div>
 </body>
 <!-- scripts -->
-<script type="text/javascript" src="js/loading.js"></script>
+<script type="text/javascript" src="js/logoutClick.js"></script>
+
 <script type="text/javascript" src="js/refresh.js"></script>
-<script type="text/javascript" src="js/settingsClick.js"></script>
 <script type="text/javascript" src="js/qrAjax.js"></script>
 <script type="text/javascript" src="js/photoClick.js"></script>
 <script type="text/javascript" src="js/getDateDiff.js"></script>
@@ -140,4 +209,8 @@
 <script type="text/javascript" src="js/nonCollapsed.js"></script>
 <script type="text/javascript" src="js/collapsed.js"></script>
 <script type="text/javascript" src="js/sessionsAjax.js"></script>
+<script>
+	var username = localStorage.getItem("user");
+	$('.who').html("Currently Logged in as: " + username);
+</script>
 </html>

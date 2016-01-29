@@ -5,7 +5,11 @@
 
 	function sessionajax(){
 					//cleans layout to refresh
-					$('li').remove();
+					$(".container").hide();
+					$("#loading").show();
+					$('li').not('.dontremove').remove();
+					$('.click').remove();
+					console.log("actualicé");
 					//set this values as desired(for interval on attendance to be taken) and not being "late"
         			var minus = 30;
         			var plus = 15;
@@ -19,8 +23,9 @@
 		 			// timeminus = now - minus minutes
 		 			var now = new Date();
 					var time = dateAdd(now,'minute', - minus);
+					console.log("timeminutesss: "+ time.getMinutes());
 					var timeminusinterval = (time.getFullYear()+'-'+time.getMonth()+1 +'-'+ time.getDate()+' '+time.getHours()+':'+time.getMinutes()+':00' );
-					//console.log("timeminusinterval: "+ timeminusinterval);
+					console.log("timeminusinterval: "+ timeminusinterval);
        jQuery.ajax({
                     url: "https://webcursos-d.uai.cl/mod/attendance/mobile/requests.php",
                     async: false,
@@ -46,25 +51,25 @@
 								//date time from sql
                     		    var sqldatetime = sqldate(value.time);
                     		    var sqldateduration = sqldate(value.timeduration);
-//                    			console.log('sqltime :' +sqldatetime);
-//                    			console.log('sqlduration :' +sqldateduration);
+                    			console.log('sqltime :' +sqldatetime);
+                    			console.log('sqlduration :' +sqldateduration);
  								//current datetime
                    				var currentdatetime = new Date();
-                   				//console.log('current: ' + currentdatetime);
+                   				console.log('current: ' + currentdatetime);
                    				//tomorrow's datetime                   				
                    		        var tomorrow = dateAdd(currentdatetime,'day', 1);
-                   		     	//console.log('tomorrow :' + tomorrow );
+                   		     	console.log('tomorrow :' + tomorrow );
                    		 		//sql minutes -30 & +15 (range for assistance to be taken)
                    		     	var timesminus= dateAdd(sqldatetime,'minute',- minus);
-                   		    	//console.log('timesminus :' + timesminus );
+                   		    	console.log('timesminus :' + timesminus );
                    		        var timesplus=  dateAdd(sqldatetime,'minute',+ plus);
-                   		        //console.log('timesplus :' + timesplus );
+                   		        console.log('timesplus :' + timesplus );
                    				 //la diferencia: ahora -> si estoy pasado de la hora es negativa
                    				 //si estoy adelantado es positiva
                    			if (currentdatetime.getDate() == sqldatetime.getDate() && currentdatetime.getMonth() == sqldatetime.getMonth()){
                    				//this means the session is today 
                    				var difference = getDateDiff(currentdatetime,sqldatetime,'minutes');
-                   				//console.log("difference: "+ difference);
+                   				console.log("difference: "+ difference);
                    			if(currentdatetime <= timesplus && difference<= minus && difference >=  - minus && counttoday == 0){
                    				//if you can take the attendance now and you are on time (attr late = 0)
                    				counttoday++;
@@ -102,6 +107,8 @@
             				if(countlater==0){
             					$('.later').append("<li class='list-group-item text-warning'>There are no available sessions for later</li>");	
             					}
+            				$("#loading").hide();
+            		        $(".container").show();
                     	} //success        
             	    });
 	}

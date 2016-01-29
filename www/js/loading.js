@@ -4,8 +4,8 @@
  */
 $(document).ready(function () {
     $(document).ajaxStart(function () {
+    	$(".container").hide();
         $("#loading").show();
-        $(".container").hide();
     }).ajaxStop(function () {
         $("#loading").hide();
         $(".container").show();
