@@ -1,0 +1,79 @@
+<html>
+<head>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta charset=utf-8 />
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery-ui.js"></script>
+
+<link href="css/bootstrap.min.css" rel='stylesheet'>
+
+</head>
+<body>
+	<div class='row container'>
+		<div class="col col-xs-18 panel panel-info">
+			<div class="panel-heading info" style="max-height: 40;">
+				<h3 class='form-singin-heading text-center'
+					style="margin: 0; padding: 0;">
+					<span class="settings glyphicon glyphicon-arrow-left pull-left"
+						onclick="goBack()"></span> Settings
+				</h3>
+			</div>
+			<div class='text-center'
+				style="height: 100%; background-image: url('img/bk.jpg');">
+
+				<img src="img/logo.gif"
+					style="padding-top: 25px; width: 150px; height: 90px;">
+
+					<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true" style="padding-top: 40px; width: 100%;">
+					<div class="panel panel-default">
+						<div role="tab" id="headingOne">
+							<h3 class="panel-title">
+								<a class="list-group-item " role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseOne"
+									aria-controls="collapseOne"> About <span
+									class="noncollapsed glyphicon glyphicon-info-sign pull-right"></span>
+								</a>
+							</h3>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div>
+								<ul class="list-group today">
+									<li class='list-group-item dontremove'>This is a mobile app for
+										taking attendance based on attendance moodle's mod</li>
+									<li class='list-group-item dontremove'>Take attendance by clicking on
+										a green session and scanning a provided QR Code</li>
+									<li class='list-group-item who text-info dontremove'></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div role="tab">
+							<h4 class="panel-title">
+								<a class="collapsed list-group-item" role="button"
+									onclick="logout()"> Logout <span
+									class="glyphicon glyphicon-log-out pull-right"></span>
+								</a>
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+<!-- scripts -->
+<script type="text/javascript" src="js/logoutClick.js"></script>
+<script type="text/javascript" src="js/goBack.js"></script>
+<!-- <script type="text/javascript" src="js/aboutClick.js"></script>  -->
+<script>
+	var username = localStorage.getItem("user");
+	$('.who').html("Currently Logged in as: " + username);
+</script>
+</html>
