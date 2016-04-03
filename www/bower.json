@@ -1,0 +1,19 @@
+{
+  "name": "workout",
+  "authors": [
+    "Leonardo Hidalgo <lhidalgo@alumnos.uai.cl>"
+  ],
+  "description": "workout libraries",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "workout"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+  }
+}

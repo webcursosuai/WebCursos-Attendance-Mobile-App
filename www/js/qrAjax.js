@@ -1,19 +1,10 @@
-var resultDiv;
-
-document.addEventListener("deviceready", init, false);
-function init() {
-	document.querySelector("#startScan").addEventListener("touchend", startScan, false);
-	resultDiv = document.querySelector("#results");
-}
-
-function startScan() {
-
+$( "#startScan" ).click(function() {
 	cordova.plugins.barcodeScanner.scan(
 		function (result) {
 			var s = "Result: " + result.text + "<br/>" +
 			"Format: " + result.format + "<br/>" +
 			"Cancelled: " + result.cancelled;
-			resultDiv.innerHTML = s;
+			//alert(s);
 			
 			//code that takes attendance on webcursos
 			var resulttext = result.text;
@@ -44,24 +35,20 @@ function startScan() {
 				'attendanceid' : attendanceid,
 				'late' : late
 			},
-			success : function(
-					response) {
+			success : function(response) {
 				 if (response.error == '1') {
-					alert ('Attendance taken correctly!.');
-					$('.click').removeClass("list-group-item-success");
-					$('.click').addClass("list-group-item-info");
-					$('.click').find('span').removeClass( "glyphicon glyphicon-camera" );
-					$('.click').find('span').addClass( "glyphicon glyphicon-ok" );
-					$('#fileInput').remove();
+					 localStorage.setItem("taken","Perfect");
 				} else if(response.error == '0'){
-					alert ('Error at taking attendance.');
+					 localStorage.setItem("taken","Error");
 				}
 			}
 		});
+		localStorage.setItem("taken","Perfect");
 		}, 
 		function (error) {
 			alert("Scanning failed: " + error);
+			localStorage.setItem("taken","Error");
 		}
 	);
-
-}
+	//function to read qr: scan()
+});
